@@ -1040,7 +1040,7 @@ cd_do_chdir(char *cnam, char *dest, int hard)
 	    if (!(*pp)[0] || ((*pp)[0] == '.' && (*pp)[1] == '\0'))
 		hasdot = 1;
     /*
-     * If 
+     * If
      * (- there is no . in cdpath
      *  - or cdpath is not being used)
      *  - and the POSIXCD option is not set
@@ -1251,7 +1251,7 @@ cd_new_pwd(int func, LinkNode dir, int quiet)
 	if (func != BIN_CD && isset(INTERACTIVE)) {
             if (unset(PUSHDSILENT) && !quiet)
 	        printdirstack();
-        } else if (doprintdir) {
+        } else if (unset(CDSILENT) && doprintdir) {
 	    fprintdir(pwd, stdout);
 	    putchar('\n');
 	}
